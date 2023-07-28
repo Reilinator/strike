@@ -1,0 +1,51 @@
+<form id="orderForm">
+  <select class="form-select" aria-label="Default select example" name="quantity">
+    <option> Quantity</option> 
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    <option value="4">Four</option>
+    <option value="5">Five</option>
+    <option value="6">Six</option>
+  </select>
+
+  <select class="form-select" aria-label="Default select example" name="version">
+    <option>Version</option> 
+    <option value="1">One = .-</option>
+    <option value="2">Two = .-</option>
+    <option value="3">Three = .-</option>
+    <option value="4">Four = .-</option>
+    <option value="5">Five = .-</option>
+    <option value="6">Six = .-</option>
+  </select>
+
+  <input type="email" name="email" placeholder="Enter your email">
+
+  <a href="/credit">
+    <button type="button" class="btn btn-secondary">Order</button>
+</a>
+</form>
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Get form data
+  const formData = new FormData(event.target);
+  const quantity = formData.get("quantity");
+  const version = formData.get("version");
+  const email = formData.get("email");
+
+  // Send email using emailjs or another email service
+  // Example using EmailJS
+  emailjs.send("service_fxqb21b", "your_email_template_id", {
+    quantity: quantity,
+    version: version,
+    email: email
+  })
+  .then(function(response) {
+    console.log("Email sent successfully!", response);
+  }, function(error) {
+    console.log("Failed to send email!", error);
+  });
+});
+</script>

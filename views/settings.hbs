@@ -1,0 +1,31 @@
+<style>
+    a {
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    a:hover {
+        color: white;
+        background-color: black;
+    }
+</style>
+<h1>take me to:</h1>
+<a href="/shop">the shop - </a>
+<a href="/">the home page - </a>
+<a href="/about">the about page - </a>
+<a href="/terms">the terms of service - </a>
+<a href="privacy">the privacy policy - </a>
+<a id="emailLink" href=""><button>chat</button></a>
+
+<script>
+    // Encode the email address to hide it from direct view
+    const encodedEmail = "cmVpbHloeWx0b25AZ21haWwuY29t"; // Your encoded email address here
+
+    // Decode and set the email address when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        const emailLink = document.getElementById('emailLink');
+        emailLink.href = `mailto:${atob(encodedEmail)}?subject=message for /Strike&body=`;
+    });
+</script>

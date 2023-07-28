@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question-Answer AI</title>
+    <style>
+        .chatbox {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            padding: 10px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        button {
+            align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chatbox" id="chatbox"></div>
+        <input type="text" id="userInput" placeholder="Ask a question..." onkeyup="handleUserInput(event)">
+    </div>
+
+    <script>
+
+        var qaPairs = {
+            "What is your name": "My name is AI Bot.",
+            "What is your name?": "My name is AI Bot.",
+
+            "How old are you": "I am an AI, so I don't have an age.",
+            "How old are you?": "I am an AI, so I don't have an age.",
+
+            "What is the capital of France": "The capital of France is Paris.",
+            "What is the capital of France?": "The capital of France is Paris.",
+
+            "I need help": "If you need help with something related to /strike then go to the settings and click the chat button. Hope that helps.",
+            "i need help": "If you need help with something related to /strike then go to the settings and click the chat button. Hope that helps.",
+            "hey": "hi, what's up?",
+            "fuck you": "ღ•⁂€™↑→↓⇝√∞░▲▶◀●☀☁☂☃☄★☆☉☐☑☎☚☛☜☝✊☞☟☠☢☣☪☮☯☸☹☺☻☼☽☾♔♕♖♗♘♚♛♜♝♞♟♡♨♩♪♫♬✈✉✍✎✓✔✘✚✞✟✠✡✦✧✩✪✮✯✹✿❀❁❂❄❅❆❝❞❣❤❥❦➤",
+            "tell me a joke": "why don't scientists trust atoms? Because they make up everything",
+            "can you help me":"If you need help with something related to /strike then go to the settings and click the chat button. Hope that helps.",
+            "Can you help me ":"If you need help with something related to /strike then go to the settings and click the chat button. Hope that helps.",
+            "can you help me?":"If you need help with something related to /strike then go to the settings and click the chat button. Hope that helps.",
+            "Can you help me?":"If you need help with something related to /strike then go to the settings and click the chat button. Hope that helps.",
+            "Tell me a joke": "why don't scientists trust atoms? Because they make up everything",
+            "nothing":"well do you want to play a game?",
+            "sure":"let's play chess or flappybird",
+            "no":"ok",
+            "ok":"go to this link: file:///c%3A/chess/index.html  or this link if you want to play flappybird: file:///c%3A/projects/jeu%20video%28s%29/flappybird.html",
+            "hi":"hello, what's up?",
+            "hello":"hey, what's up?",
+            "":"you didn't say enything",
+            
+        }
+
+        function handleUserInput(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                var userInput = document.getElementById("userInput").value;
+                document.getElementById("userInput").value = "";
+                displayUserMessage(userInput);
+                processUserInput(userInput);
+            }
+        }
+
+        function displayUserMessage(message) {
+            var chatbox = document.getElementById("chatbox");
+            var userMessageElement = document.createElement("p");
+            userMessageElement.innerHTML = "<strong>You:</strong> " + message;
+            chatbox.appendChild(userMessageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function displayBotMessage(message) {
+            var chatbox = document.getElementById("chatbox");
+            var botMessageElement = document.createElement("p");
+            botMessageElement.innerHTML = "<strong>AI Bot:</strong> " + message;
+            chatbox.appendChild(botMessageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function processUserInput(userInput) {
+            var answer = qaPairs[userInput];
+            if (answer) {
+                displayBotMessage(answer);
+            } else if (userInput.toLowerCase().includes("help")) {
+                // Check if the input contains "help" in any case
+                alert("If you need help with something related to /strike then go to the settings and click the chat button. Hope that helps.");
+            } else {
+                displayBotMessage("I'm sorry, but I don't have an answer to that question.");
+            }
+        }
+    </script>
+</body>
+
+</html>

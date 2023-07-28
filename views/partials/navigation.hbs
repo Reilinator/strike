@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6GAyJXm2FwsjQ76Az2W91mM7G8N6M" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiar" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">/Strike</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">about</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/settings">settings</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="dropdown.html" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/shop">shop now</a></li>
+                            <li><a class="dropdown-item" href="/privacy">privacy policy</a></li>
+                            <li>
+
+                            <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/terms">terms of service</a></li>
+                </ul>
+                </li>
+                </ul>
+                <form class="d-flex" role="search" onsubmit="performSearch(event)">
+                    <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Your page content goes here -->
+
+    <script>
+        function performSearch(event) {
+            event.preventDefault();
+            var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            // Your search logic goes here
+            // For this example, we'll use a simple switch statement to redirect to corresponding pages
+            switch (searchTerm) {
+                case 'home':
+                    window.location.href = '/'; // Redirect to the home page
+                    break;
+                case 'login':
+                    window.location.href = '/login'; // Redirect to the login page
+                    break;
+                case 'sign up':
+                    window.location.href = '/signup'; // Redirect to the signup page
+                    break;
+
+
+                case 'about':
+                    window.location.href = '/about'; // Redirect to the about page
+                    break;
+                case 'settings':
+                    window.location.href = '/settings'; // Redirect to the settings page
+                    break;
+                case 'chatbot':
+                    window.location.href = '/bot'; // Redirect to the chatbot page
+                    break;
+                case 'shop now':
+                    window.location.href = '/shop'; // Redirect to the shop page
+                    break;
+                case 'privacy policy':
+                    window.location.href = '/privacy'; // Redirect to the privacy policy page
+                    break;
+                case 'terms of service':
+                    window.location.href = '/terms'; // Redirect to the terms of service page
+                    break;
+                default:
+                    alert('No matching page found for your search.'); // Display an alert if no matching page is found
+            }
+        }
+    </script>
+
+    <!-- JavaScript and Bootstrap scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Z5JdZA7z3ii0Wwwj5E1j+2o49MrAO6QSpvEGYgsQXp9IbN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
